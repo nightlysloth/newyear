@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You, Swara</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Background Music -->
+<audio autoplay loop>
+  <source src="https://www.chosic.com/wp-content/uploads/2021/07/A-Thousand-Years.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Landing Screen -->
+<div class="screen active" id="screen1">
+  <h1>I made something for you… 🤍</h1>
+  <p>Take a deep breath and step inside</p>
+  <button onclick="next(2)">Enter</button>
+</div>
+
+<!-- Typewriter Letter -->
+<div class="screen" id="screen2">
+  <div class="letter">
+    <h2>Dear Swara,</h2>
+    <p id="letterText"></p>
+    <button id="letterNext" style="display:none;" onclick="next(3)">Next</button>
+  </div>
+</div>
+
+<!-- Memory Cards -->
+<div class="screen" id="screen3">
+  <h2>Little Things I Love About You</h2>
+  <div class="cards">
+    <div class="flip" onclick="revealMessage(this)">One thing I love about you</div>
+    <div class="flip" onclick="revealMessage(this)">One thing that makes me smile</div>
+    <div class="flip" onclick="revealMessage(this)">A moment I’ll never forget</div>
+  </div>
+  <button onclick="next(4)">Next</button>
+</div>
+
+<!-- Heart-Beat Pause -->
+<div class="screen" id="screen4">
+  <div class="heart-container">
+    <div class="heart">❤️</div>
+    <p>Breathe… feel me with you</p>
+  </div>
+  <button onclick="next(5)">Continue</button>
+</div>
+
+<!-- Our Story Timeline -->
+<div class="screen" id="screen5">
+  <h2>Our Little Story</h2>
+  <div class="story">
+    <p>How we met: That first hello… felt like a spark.</p>
+    <p>First laugh: Every joke we shared still makes me smile.</p>
+    <p>Favorite moment: Late-night calls when the world felt far away, but we felt close.</p>
+  </div>
+  <button onclick="next(6)">Next</button>
+</div>
+
+<!-- Surprise Popup -->
+<div class="screen" id="screen6">
+  <h2>When you miss me…</h2>
+  <button onclick="showPopup()">Click here 🤍</button>
+</div>
+
+<div id="popup">
+  <div class="popupBox">
+    <p>Even miles apart, you’re always with me. You don’t have to be strong all the time — I’m here, always.</p>
+    <button onclick="closePopup()">Close</button>
+  </div>
+</div>
+
+<!-- Final Reveal -->
+<div class="screen" id="screen7">
+  <h1 class="glow">I’m yours, always ❤️</h1>
+  <p>Every day, every moment.</p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
