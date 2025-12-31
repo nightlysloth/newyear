@@ -3,48 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Swara</title>
+    <title>For Swara | 2026</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <section id="home" class="active">
-        <div class="hero-content">
-            <h1 class="cursive">Happy New Year</h1>
-            <p>A little something for you...</p>
-            <button onclick="nextSection('letters')">Begin Here ✨</button>
+        <div class="glass-card">
+            <h1 class="cursive">Hey Swara...</h1>
+            <p>Before this year ends, I wanted to take you on a little trip down memory lane.</p>
+            <button onclick="nextSection('timer-section')">Let's Go ✨</button>
         </div>
     </section>
 
-    <section id="letters">
-        <h2 class="cursive">Our 2025 Memories</h2>
-        <div class="envelope-container">
-            <div class="envelope" onclick="openLetter(1)">💌 <span>Read Me</span></div>
-            <div class="envelope" onclick="openLetter(2)">💌 <span>Open This</span></div>
-            <div class="envelope" onclick="openLetter(3)">💌 <span>One More</span></div>
+    <section id="timer-section">
+        <div class="glass-card">
+            <h2 class="cursive">Every Second Matters</h2>
+            <p>It’s been a beautiful journey since we first started this in March.</p>
+            <div id="timer">
+                <div class="time-unit"><span id="days">00</span><p>Days</p></div>
+                <div class="time-unit"><span id="hours">00</span><p>Hours</p></div>
+                <div class="time-unit"><span id="minutes">00</span><p>Mins</p></div>
+            </div>
+            <p class="subtext">...and I’ve loved every single moment of it.</p>
+            <button onclick="nextSection('memories')">Next Chapter</button>
         </div>
-        <button id="finalBtn" class="hidden" onclick="nextSection('final')">A Final Message ❤️</button>
+    </section>
+
+    <section id="memories">
+        <h2 class="cursive">Little Reminders</h2>
+        <p>Before you get to your final letter, here are a few things I never want you to forget.</p>
+        <div class="moments-container">
+            <div class="moment-card" onclick="openLetter(1)">✨ The way you make me laugh</div>
+            <div class="moment-card" onclick="openLetter(2)">🌙 Our late night conversations</div>
+            <div class="moment-card" onclick="openLetter(3)">💖 How you support my dreams</div>
+            <div class="moment-card" onclick="openLetter(4)">🧸 The comfort of your presence</div>
+        </div>
+        <button id="finalBtn" class="hidden pulse" onclick="nextSection('final')">Finally, for the New Year...</button>
     </section>
 
     <section id="final">
         <div class="letter-paper">
             <h2 class="cursive">Dear Swara,</h2>
-            <p>This year has been a beautiful journey—one filled with laughter and growth. From the moments that made us smile to the ones that challenged us, I’m grateful for every second because I had you by my side.</p>
-            <p>Starting and ending this year with you is the greatest gift. I can’t wait to see what the next 365 days hold for us.</p>
-            <p>Here’s to us, our love, and every new memory we’re about to create together. 🥂✨</p>
+            <p>As I sit here thinking about how to end this year, my mind keeps going back to March. That’s when everything changed for the better. Looking back, this year has been a complete journey—full of ups and downs, loud laughter, and those quiet challenges that we handled together.</p>
+            <p>What I love most is that we didn’t just have a "good year," we had a real one. We grew, we learned about each other, and we built something that makes me feel incredibly lucky every day. Ending 2025 with you is the only way I’d want to close this chapter.</p>
+            <p>As the clock resets, I want you to know that I’m not just looking forward to the celebration tonight, but to the thousands of tiny moments we’ll share in 2026. Here’s to us, our love, and every beautiful memory waiting for us just around the corner.</p>
             <p class="cursive signature">Love you endlessly,<br>Prateek 💖</p>
         </div>
     </section>
 
     <div id="overlay" class="overlay">
-        <div class="popup-letter" id="popup">
+        <div class="popup-letter">
             <span class="close-btn" onclick="closeLetter()">&times;</span>
-            <div id="popup-content"></div>
+            <div id="popup-content" class="popup-text"></div>
         </div>
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
-
