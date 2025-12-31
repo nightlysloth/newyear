@@ -1,8 +1,8 @@
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Dancing Script', 'Great Vibes', cursive;
   background: linear-gradient(to bottom, #ffd1dc, #fff);
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .screen {
@@ -13,7 +13,7 @@ body {
   align-items: center;
   flex-direction: column;
   text-align: center;
-  padding: 30px;
+  padding: 20px;
 }
 
 .active {
@@ -28,30 +28,33 @@ body {
 
 h1, h2 {
   color: #ff4d6d;
+  font-size: 2.5em;
 }
 
 p {
   color: #444;
-  max-width: 500px;
-  line-height: 1.6;
+  font-size: 1.2em;
+  line-height: 1.6em;
+  max-width: 90%;
+  margin: 10px auto;
 }
 
 button {
   margin-top: 20px;
-  padding: 12px 25px;
+  padding: 14px 30px;
   background: #ff4d6d;
   border: none;
-  border-radius: 25px;
+  border-radius: 30px;
   color: white;
-  font-size: 16px;
+  font-size: 1.2em;
   cursor: pointer;
 }
 
-.letter {
+.letter, .story {
   background: white;
-  padding: 30px;
+  padding: 25px;
   border-radius: 20px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.15);
+  box-shadow: 0 0 20px rgba(0,0,0,0.15);
 }
 
 .cards {
@@ -65,10 +68,11 @@ button {
   background: white;
   padding: 20px;
   border-radius: 15px;
-  width: 180px;
+  width: 90%;
+  max-width: 220px;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   cursor: pointer;
-  transition: transform 0.5s;
+  transition: transform 0.6s;
 }
 
 .flip.revealed {
@@ -80,16 +84,24 @@ button {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.5);
   justify-content: center;
   align-items: center;
+  background: rgba(0,0,0,0.4);
 }
 
-.popupBox {
-  background: white;
-  padding: 30px;
+.popupLetter {
+  background: #fff3f8;
+  border: 2px solid #ff4d6d;
+  padding: 25px;
   border-radius: 20px;
-  text-align: center;
+  width: 90%;
+  max-width: 350px;
+  transform: scale(0);
+  animation: openLetter 0.5s forwards;
+}
+
+@keyframes openLetter {
+  to {transform: scale(1);}
 }
 
 .heart-container {
@@ -113,4 +125,10 @@ button {
 .glow {
   color: #ff4d6d;
   text-shadow: 0 0 10px #ff4d6d, 0 0 20px #ff4d6d, 0 0 30px #ff4d6d;
+}
+
+@media (max-width: 480px) {
+  h1, h2 { font-size: 2em; }
+  p { font-size: 1.1em; }
+  button { font-size: 1em; padding: 12px 25px; }
 }

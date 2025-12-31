@@ -47,13 +47,17 @@ function revealMessage(card) {
   else if(card.innerText === "A moment I’ll never forget") card.innerText = "Every late-night call we had when I felt far, but close to you.";
 }
 
-// Popup
+// Popup Letters
 function showPopup() {
-  document.getElementById("popup").style.display = "flex";
+  const popup = document.getElementById("popup");
+  popup.style.display = "flex";
+  const letter = popup.querySelector(".popupLetter");
+  letter.classList.remove("openLetter");
+  void letter.offsetWidth;
+  letter.classList.add("openLetter");
 }
 
 function closePopup() {
   document.getElementById("popup").style.display = "none";
-  next(7);
+  next(8);
 }
-

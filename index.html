@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For You, Swara</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Great+Vibes&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -59,21 +61,41 @@
   <button onclick="next(6)">Next</button>
 </div>
 
-<!-- Surprise Popup -->
+<!-- New Year Section -->
 <div class="screen" id="screen6">
+  <div class="letter">
+    <h2>Happy New Year 🥂✨</h2>
+    <p>
+      This year was a journey — full of ups and downs, laughter and challenges,  
+      but every moment was brighter because I got to share it with you.  
+      We started the year together, we’re ending it together,  
+      and I can’t wait to begin the next one by your side.  
+      Here’s to us, our love, and all the beautiful moments waiting for us in the new year.  
+      <br><br>
+      Love you endlessly,<br>
+      Prateek 💖
+    </p>
+    <button onclick="next(7)">Next</button>
+  </div>
+</div>
+
+<!-- Surprise Popup -->
+<div class="screen" id="screen7">
   <h2>When you miss me…</h2>
   <button onclick="showPopup()">Click here 🤍</button>
 </div>
 
 <div id="popup">
-  <div class="popupBox">
-    <p>Even miles apart, you’re always with me. You don’t have to be strong all the time — I’m here, always.</p>
-    <button onclick="closePopup()">Close</button>
+  <div class="popupLetter">
+    <div class="popup-content">
+      <p>Even miles apart, you’re always with me. You don’t have to be strong all the time — I’m here, always.</p>
+      <button onclick="closePopup()">Close</button>
+    </div>
   </div>
 </div>
 
 <!-- Final Reveal -->
-<div class="screen" id="screen7">
+<div class="screen" id="screen8">
   <h1 class="glow">I’m yours, always ❤️</h1>
   <p>Every day, every moment.</p>
 </div>
