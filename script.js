@@ -1,63 +1,33 @@
-let currentScreen = 1;
+const letterContent = {
+    1: "I was looking back at our photos today. Every time I see your smile, I'm reminded of why this year was so special. You are my favorite part of every day.",
+    2: "Thank you for being my rock. Even on the days when things felt heavy, your voice was the only thing that could instantly make everything better.",
+    3: "I've learned so much about love just by being with you. You make me want to be the best version of myself, today and every day after."
+};
 
-function next(n) {
-  document.getElementById("screen" + currentScreen).classList.remove("active");
-  document.getElementById("screen" + n).classList.add("active");
-  currentScreen = n;
+let lettersOpened = 0;
 
-  if(n === 2) typeLetter();
+function nextSection(id) {
+    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo(0,0);
 }
 
-// Typewriter Letter
-const letterLines = [
-  "Sometimes I just sit and think about you…",
-  "how calm you make everything feel.",
-  "Even the simplest day feels brighter with you.",
-  "I wanted to make a little place just for us."
-];
-
-let lineIndex = 0;
-let charIndex = 0;
-
-function typeLetter() {
-  const p = document.getElementById("letterText");
-  if(lineIndex < letterLines.length) {
-    const line = letterLines[lineIndex];
-    if(charIndex < line.length) {
-      p.innerHTML += line.charAt(charIndex);
-      charIndex++;
-      setTimeout(typeLetter, 50);
-    } else {
-      p.innerHTML += "<br>";
-      lineIndex++;
-      charIndex = 0;
-      setTimeout(typeLetter, 500);
+function openLetter(num) {
+    const overlay = document.getElementById('overlay');
+    const content = document.getElementById('popup-content');
+    content.innerText = letterContent[num];
+    overlay.style.display = 'block';
+    setTimeout(() => overlay.classList.add('active'), 10);
+    
+    // Track progress to show the final button
+    lettersOpened++;
+    if(lettersOpened >= 3) {
+        document.getElementById('finalBtn').classList.remove('hidden');
     }
-  } else {
-    document.getElementById("letterNext").style.display = "inline-block";
-  }
 }
 
-// Memory Cards
-function revealMessage(card) {
-  if(card.classList.contains("revealed")) return;
-  card.classList.add("revealed");
-  if(card.innerText === "One thing I love about you") card.innerText = "Your laugh, it’s my favorite song.";
-  else if(card.innerText === "One thing that makes me smile") card.innerText = "The way you care, even for the little things.";
-  else if(card.innerText === "A moment I’ll never forget") card.innerText = "Every late-night call we had when I felt far, but close to you.";
-}
-
-// Popup Letters
-function showPopup() {
-  const popup = document.getElementById("popup");
-  popup.style.display = "flex";
-  const letter = popup.querySelector(".popupLetter");
-  letter.classList.remove("openLetter");
-  void letter.offsetWidth;
-  letter.classList.add("openLetter");
-}
-
-function closePopup() {
-  document.getElementById("popup").style.display = "none";
-  next(8);
+function closeLetter() {
+    const overlay = document.getElementById('overlay');
+    overlay.classList.remove('active');
+    setTimeout(() => overlay.style.display = 'none', 400);
 }

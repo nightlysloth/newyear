@@ -1,105 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For You, Swara</title>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Great+Vibes&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Swara</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- Background Music -->
-<audio autoplay loop>
-  <source src="https://www.chosic.com/wp-content/uploads/2021/07/A-Thousand-Years.mp3" type="audio/mpeg">
-</audio>
+    <section id="home" class="active">
+        <div class="hero-content">
+            <h1 class="cursive">Happy New Year</h1>
+            <p>A little something for you...</p>
+            <button onclick="nextSection('letters')">Begin Here ✨</button>
+        </div>
+    </section>
 
-<!-- Landing Screen -->
-<div class="screen active" id="screen1">
-  <h1>I made something for you… 🤍</h1>
-  <p>Take a deep breath and step inside</p>
-  <button onclick="next(2)">Enter</button>
-</div>
+    <section id="letters">
+        <h2 class="cursive">Our 2025 Memories</h2>
+        <div class="envelope-container">
+            <div class="envelope" onclick="openLetter(1)">💌 <span>Read Me</span></div>
+            <div class="envelope" onclick="openLetter(2)">💌 <span>Open This</span></div>
+            <div class="envelope" onclick="openLetter(3)">💌 <span>One More</span></div>
+        </div>
+        <button id="finalBtn" class="hidden" onclick="nextSection('final')">A Final Message ❤️</button>
+    </section>
 
-<!-- Typewriter Letter -->
-<div class="screen" id="screen2">
-  <div class="letter">
-    <h2>Dear Swara,</h2>
-    <p id="letterText"></p>
-    <button id="letterNext" style="display:none;" onclick="next(3)">Next</button>
-  </div>
-</div>
+    <section id="final">
+        <div class="letter-paper">
+            <h2 class="cursive">Dear Swara,</h2>
+            <p>This year has been a beautiful journey—one filled with laughter and growth. From the moments that made us smile to the ones that challenged us, I’m grateful for every second because I had you by my side.</p>
+            <p>Starting and ending this year with you is the greatest gift. I can’t wait to see what the next 365 days hold for us.</p>
+            <p>Here’s to us, our love, and every new memory we’re about to create together. 🥂✨</p>
+            <p class="cursive signature">Love you endlessly,<br>Prateek 💖</p>
+        </div>
+    </section>
 
-<!-- Memory Cards -->
-<div class="screen" id="screen3">
-  <h2>Little Things I Love About You</h2>
-  <div class="cards">
-    <div class="flip" onclick="revealMessage(this)">One thing I love about you</div>
-    <div class="flip" onclick="revealMessage(this)">One thing that makes me smile</div>
-    <div class="flip" onclick="revealMessage(this)">A moment I’ll never forget</div>
-  </div>
-  <button onclick="next(4)">Next</button>
-</div>
-
-<!-- Heart-Beat Pause -->
-<div class="screen" id="screen4">
-  <div class="heart-container">
-    <div class="heart">❤️</div>
-    <p>Breathe… feel me with you</p>
-  </div>
-  <button onclick="next(5)">Continue</button>
-</div>
-
-<!-- Our Story Timeline -->
-<div class="screen" id="screen5">
-  <h2>Our Little Story</h2>
-  <div class="story">
-    <p>How we met: That first hello… felt like a spark.</p>
-    <p>First laugh: Every joke we shared still makes me smile.</p>
-    <p>Favorite moment: Late-night calls when the world felt far away, but we felt close.</p>
-  </div>
-  <button onclick="next(6)">Next</button>
-</div>
-
-<!-- New Year Section -->
-<div class="screen" id="screen6">
-  <div class="letter">
-    <h2>Happy New Year 🥂✨</h2>
-    <p>
-      This year was a journey — full of ups and downs, laughter and challenges,  
-      but every moment was brighter because I got to share it with you.  
-      We started the year together, we’re ending it together,  
-      and I can’t wait to begin the next one by your side.  
-      Here’s to us, our love, and all the beautiful moments waiting for us in the new year.  
-      <br><br>
-      Love you endlessly,<br>
-      Prateek 💖
-    </p>
-    <button onclick="next(7)">Next</button>
-  </div>
-</div>
-
-<!-- Surprise Popup -->
-<div class="screen" id="screen7">
-  <h2>When you miss me…</h2>
-  <button onclick="showPopup()">Click here 🤍</button>
-</div>
-
-<div id="popup">
-  <div class="popupLetter">
-    <div class="popup-content">
-      <p>Even miles apart, you’re always with me. You don’t have to be strong all the time — I’m here, always.</p>
-      <button onclick="closePopup()">Close</button>
+    <div id="overlay" class="overlay">
+        <div class="popup-letter" id="popup">
+            <span class="close-btn" onclick="closeLetter()">&times;</span>
+            <div id="popup-content"></div>
+        </div>
     </div>
-  </div>
-</div>
 
-<!-- Final Reveal -->
-<div class="screen" id="screen8">
-  <h1 class="glow">I’m yours, always ❤️</h1>
-  <p>Every day, every moment.</p>
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
+
