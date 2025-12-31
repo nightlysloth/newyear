@@ -1,65 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Swara | 2026</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For You, Swara 💌</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
 </head>
 <body>
+  <div class="background-hearts"></div>
 
-    <section id="home" class="active">
-        <div class="glass-card">
-            <h1 class="cursive">Hey Swara...</h1>
-            <p>Before this year ends, I wanted to take you on a little trip down memory lane.</p>
-            <button onclick="nextSection('timer-section')">Let's Go ✨</button>
+  <!-- Landing Screen -->
+  <div id="landing" class="screen active">
+    <div class="landing-content">
+      <h1>Dear Swara,</h1>
+      <p class="subtitle">Tap the envelope to begin 💌</p>
+      <div class="envelope-container" onclick="startJourney()">
+        <div class="envelope">
+          <div class="envelope-flap"></div>
+          <div class="envelope-heart">💌</div>
         </div>
-    </section>
-
-    <section id="timer-section">
-        <div class="glass-card">
-            <h2 class="cursive">Every Second Matters</h2>
-            <p>It’s been a beautiful journey since we first started this in March.</p>
-            <div id="timer">
-                <div class="time-unit"><span id="days">00</span><p>Days</p></div>
-                <div class="time-unit"><span id="hours">00</span><p>Hours</p></div>
-                <div class="time-unit"><span id="minutes">00</span><p>Mins</p></div>
-            </div>
-            <p class="subtext">...and I’ve loved every single moment of it.</p>
-            <button onclick="nextSection('memories')">Next Chapter</button>
-        </div>
-    </section>
-
-    <section id="memories">
-        <h2 class="cursive">Little Reminders</h2>
-        <p>Before you get to your final letter, here are a few things I never want you to forget.</p>
-        <div class="moments-container">
-            <div class="moment-card" onclick="openLetter(1)">✨ The way you make me laugh</div>
-            <div class="moment-card" onclick="openLetter(2)">🌙 Our late night conversations</div>
-            <div class="moment-card" onclick="openLetter(3)">💖 How you support my dreams</div>
-            <div class="moment-card" onclick="openLetter(4)">🧸 The comfort of your presence</div>
-        </div>
-        <button id="finalBtn" class="hidden pulse" onclick="nextSection('final')">Finally, for the New Year...</button>
-    </section>
-
-    <section id="final">
-        <div class="letter-paper">
-            <h2 class="cursive">Dear Swara,</h2>
-            <p>As I sit here thinking about how to end this year, my mind keeps going back to March. That’s when everything changed for the better. Looking back, this year has been a complete journey—full of ups and downs, loud laughter, and those quiet challenges that we handled together.</p>
-            <p>What I love most is that we didn’t just have a "good year," we had a real one. We grew, we learned about each other, and we built something that makes me feel incredibly lucky every day. Ending 2025 with you is the only way I’d want to close this chapter.</p>
-            <p>As the clock resets, I want you to know that I’m not just looking forward to the celebration tonight, but to the thousands of tiny moments we’ll share in 2026. Here’s to us, our love, and every beautiful memory waiting for us just around the corner.</p>
-            <p class="cursive signature">Love you endlessly,<br>Prateek 💖</p>
-        </div>
-    </section>
-
-    <div id="overlay" class="overlay">
-        <div class="popup-letter">
-            <span class="close-btn" onclick="closeLetter()">&times;</span>
-            <div id="popup-content" class="popup-text"></div>
-        </div>
+      </div>
+      <p class="from">From Prateek, with all my love</p>
     </div>
+  </div>
 
-    <script src="script.js"></script>
+  <!-- Letter Screens -->
+  <div id="letter1" class="screen letter-screen">
+    <div class="back-btn" onclick="goBack()">←</div>
+    <div class="letter-envelope" onclick="openLetter(1)">
+      <div class="envelope-big">
+        <div class="flap"></div>
+        <div class="heart-big">💌</div>
+      </div>
+      <p>Tap to open the first letter</p>
+    </div>
+  </div>
+
+  <div id="letter2" class="screen letter-screen">
+    <div class="back-btn" onclick="goBack()">←</div>
+    <div class="letter-envelope" onclick="openLetter(2)">
+      <div class="envelope-big">
+        <div class="flap"></div>
+        <div class="heart-big">💌</div>
+      </div>
+      <p>Second letter</p>
+    </div>
+  </div>
+
+  <div id="letter3" class="screen letter-screen">
+    <div class="back-btn" onclick="goBack()">←</div>
+    <div class="letter-envelope" onclick="openLetter(3)">
+      <div class="envelope-big">
+        <div class="flap"></div>
+        <div class="heart-big">💌</div>
+      </div>
+      <p>Third letter</p>
+    </div>
+  </div>
+
+  <div id="letter4" class="screen letter-screen">
+    <div class="back-btn" onclick="goBack()">←</div>
+    <div class="letter-envelope" onclick="openLetter(4)">
+      <div class="envelope-big">
+        <div class="flap"></div>
+        <div class="heart-big">💌</div>
+      </div>
+      <p>Final letter</p>
+    </div>
+  </div>
+
+  <!-- Letter Content Overlays -->
+  <div id="content1" class="letter-content">
+    <div class="letter-paper">
+      <h2>Dear Swara,</h2>
+      <p>Every single day with you feels like a gift I never knew I needed. Your smile, your laugh, the way you look at me — it all turns ordinary moments into something magical.</p>
+      <p>I still catch myself smiling like an idiot when I think about the little things: how you steal the blanket, how you dance in the kitchen, how you make everything better just by being you.</p>
+      <p>Thank you for choosing me, every day. I’m the luckiest.</p>
+      <p class="sign">Forever yours,<br>Prateek 💕</p>
+      <button class="next-btn" onclick="nextLetter(2)">Next Letter →</button>
+    </div>
+  </div>
+
+  <div id="content2" class="letter-content">
+    <div class="letter-paper">
+      <h2>My Love,</h2>
+      <p>There are moments when I look at you and realize how deeply you’ve become a part of me. You’re my calm in chaos, my favorite notification, my safe place.</p>
+      <p>I love how we can talk for hours or sit in comfortable silence. I love how we dream together, plan silly things, and make each other laugh until our stomachs hurt.</p>
+      <p>You make my world brighter, softer, and infinitely better.</p>
+      <p class="sign">Always,<br>Prateek 🌸</p>
+      <button class="next-btn" onclick="nextLetter(3)">Next →</button>
+    </div>
+  </div>
+
+  <div id="content3" class="letter-content">
+    <div class="letter-paper">
+      <h2>Swara,</h2>
+      <p>This year flew by, but every memory has you in it — and that’s what makes it beautiful. From late-night drives to lazy mornings, from big adventures to quiet evenings, you made 2025 unforgettable.</p>
+      <p>We laughed, we grew, we faced everything side by side. And now, as the clock strikes midnight, I just want you to know:</p>
+      <p>I can’t wait to step into 2026 with you. More dreams, more laughter, more love — all with my favorite person in the world.</p>
+      <p>Here’s to us and every beautiful moment ahead. 🥂✨</p>
+      <p class="sign">Love you beyond words,<br>Prateek 💖</p>
+      <button class="next-btn" onclick="nextLetter(4)">One more →</button>
+    </div>
+  </div>
+
+  <div id="content4" class="letter-content">
+    <div class="letter-paper final">
+      <h2>Dear Swara,</h2>
+      <p>Thank you for being my everything. For the love you give so freely, for the way you believe in me, for making my heart feel so full.</p>
+      <p>I don’t need a new year to make promises — I’ll keep choosing you, loving you, and cherishing you every single day.</p>
+      <p>You are my favorite chapter, and I can’t wait to keep writing our story together.</p>
+      <p class="sign big">I love you endlessly,<br>Prateek 💞</p>
+      <div class="final-hearts">💕 ✨ 💕 ✨ 💕</div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
